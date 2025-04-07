@@ -48,9 +48,9 @@ export class AuthService {
     }
 
     // Check if user is verified
-    if (!user.verified) {
-      throw new Error('Please verify your email first');
-    }
+    // if (!user.verified) {
+    //   throw new Error('Please verify your email first');
+    // }
 
     // Verify password
     const isValidPassword = await user.comparePassword(password);
