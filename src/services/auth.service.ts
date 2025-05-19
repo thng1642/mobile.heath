@@ -17,7 +17,7 @@ export class AuthService {
     email: string;
     password: string;
     name: string;
-  }): Promise<{ user: IUser; verificationToken: string }> {
+  }): Promise<{ user: IUser; access_token: string }> {
     // Check if user already exists
     const existingUser = await this.userService.findByEmail(userData.email);
     if (existingUser) {
@@ -25,16 +25,16 @@ export class AuthService {
     }
 
     // Generate verification token
-    const verificationToken = crypto.randomBytes(32).toString('hex');
+    const access_token = crypto.randomBytes(32).toString('hex');
 
     // Create new user
     const user = await this.userService.createUser({
       ...userData,
-      verificationToken,
-      verified: false,
+      accessToken: access_token,
+      verified: true,
     });
 
-    return { user, verificationToken };
+    return { user, access_token };
   }
 
   async login(email: string, password: string): Promise<{

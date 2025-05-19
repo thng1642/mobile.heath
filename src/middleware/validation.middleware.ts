@@ -26,7 +26,9 @@ export const signupValidation = [
     .isLength({ min: 2 })
     .withMessage('Name must be at least 2 characters long'),
 ];
-
+/**
+ * middle-validation for login route
+ */
 export const loginValidation = [
   body('email')
     .trim()
