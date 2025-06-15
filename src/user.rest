@@ -5,10 +5,11 @@ POST http://localhost:5050/api/auth/signup
 Content-Type: application/json
 
 {
-  "username": "john_doe",
-  "email": "john.doe@example.com",
+  "email": "duc.trung@example.com",
   "password": "Password123",
-  "name": "John Doe"
+  "firstname": "Trần",
+  "middlename": "Đức",
+  "lastname": "Trung"
 }
 
 ### Login
@@ -16,7 +17,7 @@ POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "john.doe@example.com",
+  "email": "duc.trung@example.com",
   "password": "Password123"
 }
 

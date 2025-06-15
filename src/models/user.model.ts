@@ -2,13 +2,12 @@ import mongoose, { Document, Schema } from "mongoose";
 import bcrypt from "bcryptjs";
 
 export interface IUser extends Document {
-  username: string;
   email: string;
   password: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  birthDate: Date;
+  firstname: string;
+  middlename: string;
+  lastname: string;
+  birthdate: Date;
   roles: string[];
   refreshToken?: string;
   verified: boolean;
@@ -21,13 +20,6 @@ export interface IUser extends Document {
 
 const userSchema = new Schema<IUser>(
   {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true,
-      minlength: 3,
-    },
     email: {
       type: String,
       required: true,
@@ -40,22 +32,22 @@ const userSchema = new Schema<IUser>(
       required: true,
       minlength: 6,
     },
-    firstName: {
+    firstname: {
       type: String,
       required: true,
       trim: true,
     },
-    middleName: {
+    middlename: {
       type: String,
       required: false,
       trim: true,
     },
-    lastName: {
+    lastname: {
       type: String,
       required: false,
       trim: true,
     },
-    birthDate: {
+    birthdate: {
       type: Date,
       required: false,
     },

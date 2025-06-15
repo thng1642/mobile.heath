@@ -13,10 +13,11 @@ export class AuthService {
   }
 
   async signup(userData: {
-    username: string;
     email: string;
     password: string;
-    name: string;
+    firstname: string;
+    lastname: string;
+    middlename: string;
   }): Promise<{ user: IUser; access_token: string }> {
     // Check if user already exists
     const existingUser = await this.userService.findByEmail(userData.email);

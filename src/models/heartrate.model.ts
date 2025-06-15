@@ -1,19 +1,27 @@
 import mongoose, { Schema } from "mongoose";
 
 export const HeartRate = mongoose.model(
-  "HeartRate",
+  "heartrate",
   new mongoose.Schema({
-    starttime: {
-      type: String,
+    averagerate: {
+      type: Number,
       required: true,
+      min: 1,
+      max: 300,
     },
-    endtime: {
-      type: String,
+    bloodpresure: {
+      type: String, //  chuoi phan so
       required: true,
+    }, 
+    maxrate:{
+      type: Number,
+    }, 
+    minrate: {
+      type: Number,
     },
-    sample: {
+    user: {
       type: Schema.Types.ObjectId,
-      ref: "Sample",
+      ref: "User",
       required: true,
     },
   })

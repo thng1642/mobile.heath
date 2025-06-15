@@ -20,14 +20,15 @@ export class AuthController {
         return;
       }
 
-      const { username, email, password, name } = req.body;
-      console.log("Creating user with:", { username, email, name });
+      const { email, password, firstname, middlename, lastname } = req.body;
+      console.log("Creating user with:", { email, firstname, middlename, lastname });
 
       const { user, access_token } = await this.authService.signup({
-        username,
         email,
         password,
-        name,
+        firstname,
+        middlename,
+        lastname,
       });
 
       console.log("User created successfully:", user._id);
@@ -36,7 +37,6 @@ export class AuthController {
         message: "User created successfully. Please verify your email.",
         user: {
           id: user._id,
-          username: user.username,
           email: user.email,
           // name: user.name,
         },
@@ -67,12 +67,11 @@ export class AuthController {
         // message: 'Login successful',
         user: {
           _id: user._id,
-          username: user.username,
           email: user.email,
-          firstName: user.firstName,
-          middleName: user.middleName,
-          lastName: user.lastName,
-          birthDate: user.birthDate,
+          firstname: user.firstname,
+          middlename: user.middlename,
+          lastname: user.lastname,
+          birthdate: user.birthdate,
           roles: user.roles,
         },
         access_token: accessToken,
