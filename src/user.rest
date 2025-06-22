@@ -24,3 +24,10 @@ Content-Type: application/json
 ### Refresh Token
 POST http://localhost:3000/api/auth/refresh-token
 Content-Type: application/json
+
+### Heart rate
+GET {{baseUrl}}/api/heart-rate/all
+Content-Type: application/json
+###
+GET {{baseUrl}}/api/heart-rate/user/684e7dc5d2a067e4cf817d51
+Content-Type: application/json

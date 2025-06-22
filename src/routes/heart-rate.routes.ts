@@ -5,6 +5,7 @@ const routerHeartRate = Router();
 
 const heartRateController = new HeartRateController();
 // Routes public
-routerHeartRate.get('/heart-rate-all', heartRateController.queryAllHeartRate);
+routerHeartRate.get('/all', heartRateController.queryAllHeartRate);
+routerHeartRate.get('/user/:userId', heartRateController.getHeartRateByUserId);
 
 export default routerHeartRate;
