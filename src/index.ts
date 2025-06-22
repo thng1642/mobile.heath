@@ -9,6 +9,7 @@ import { Server, Socket } from "socket.io";
 // Load environment variables before other imports
 import { Server as Engine } from "engine.io";
 import { createServer } from "node:http";
+import routerHeartRate from "./routes/heart-rate.routes";
 // const httpServer = createServer((req, res) => {
 //   res.writeHead(404).end();
 // });
@@ -56,7 +57,8 @@ connectDB();
 
 // Routes
 app.use("/api/auth", authRoutes);
-
+//* Routes  for heart rate
+app.use("/api/heart-rate", routerHeartRate);
 // Basic route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Health Care API" });
